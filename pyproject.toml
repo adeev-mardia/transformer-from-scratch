@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "transformer-from-scratch"
+version = "0.1.0"
+description = "A GPT-style decoder-only transformer language model, built from first principles on NumPy."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Adeev Mardia" }
+]
+dependencies = [
+    "numpy>=1.24",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "matplotlib>=3.5",
+]
+
+[project.scripts]
+transformer-train = "transformer_scratch.train:main"
+transformer-generate = "transformer_scratch.generate:main"
+
+[tool.setuptools.packages.find]
+include = ["transformer_scratch*"]
